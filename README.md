@@ -11,7 +11,7 @@ The goals / steps of this project are the following:
 
 # Data Augmentation
 
-Firstly, I tried generating my own data from the simulator by running the simulator using the mouse. But, the vehicle was not performing well, so I decided to switch to the data provided by Udacity. Although I added some recovery data (i.e collecting data such that it captures the behavior to follow when the car deviates from the track) to the dataset.
+At first, I tried generating my own data from the simulator by running the simulator using the mouse. But the results were not good, so I decided to switch to the data provided by Udacity. However, I added some recovery data (i.e collecting data such that it captures the behavior to follow when the car deviates from the track) to the dataset.
 
 I also used left and right camera images. The left camera image's steering angle had to be adjusted by adding a small angle of 0.3 and the right camera image's steering angle had to be adjusted by subtracting a small angle of 0.3.
 
@@ -21,7 +21,7 @@ I also used left and right camera images. The left camera image's steering angle
 
 A Keras's lambda layer was added to normalize all the images to range between 0 and 1 and mean center them so that losses are smaller.
 
-The original images were cropped using Keras's Cropping2D layer by 70 px from the top and 25 px from the bottom. They were cropped to remove the top portion (sky, trees and other details) which only proved as a distraction to our network. And the bottom of the image was cropped as it was only displaying the car hood.
+The original images were cropped using Keras's Cropping2D layer by 70 px from the top and 25 px from the bottom. They were cropped to remove the top portion (sky, trees and other details) which only proved as a distraction to the network. And the bottom of the image was cropped as it was only displaying the car hood.
 
 ![Cropping Example](images/cropping_example.png)
 
@@ -34,7 +34,7 @@ At first, I used LeNet architecture to solve the problem but the model did not p
 I made some modifications to the network to solve my problem better. I used ELU (Exponential Linear Units) activation layers to introduce nonlinearity in my model. And added a dropout layer after the convolution layers to prevent overfitting.
 
 |Layer (type)   |
-|---|---|
+|---|
 |Input (160,320,3)|
 | Lambda (160,320,3) |
 | Cropping  (65,320,3)|
